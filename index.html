@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Learning Academy</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="h-full font-sans">
+  <div id="app" class="min-h-screen flex flex-col">
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="shadow-md px-8 py-6 bg-white">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">📖</span>
+          <h1 id="site-title" class="font-arabic text-2xl font-bold">
+            Quran Learning Academy
+          </h1>
+        </div>
+
+        <div class="flex gap-3">
+          <button class="nav-btn" onclick="showSection('home-section')">Home</button>
+          <button class="nav-btn" onclick="showSection('register-section')">Register</button>
+          <button class="nav-btn" onclick="showSection('login-section')">Student Login</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="flex-1">
+
+      <!-- HOME -->
+      <section id="home-section" class="block text-center p-10 fade-in">
+        <h2 id="welcome-message" class="font-arabic text-4xl font-bold mb-6">
+          Learn Quran Online with Expert Teachers
+        </h2>
+
+        <p id="about-text" class="text-lg max-w-2xl mx-auto mb-8">
+          Join our online Quran learning community and study with qualified teachers through Google Meet and WhatsApp.
+        </p>
+
+        <div class="flex justify-center gap-4 flex-wrap">
+          <button class="primary-btn" onclick="showSection('register-section')">
+            Register Now
+          </button>
+          <button class="outline-btn" onclick="showSection('login-section')">
+            Student Login
+          </button>
+        </div>
+      </section>
+
+      <!-- REGISTER -->
+      <section id="register-section" class="hidden p-10">
+        <h2 class="text-3xl font-bold text-center mb-6">Student Registration</h2>
+
+        <form id="registration-form" class="max-w-md mx-auto bg-white p-6 rounded-xl shadow">
+          <input required placeholder="Full Name" class="input" />
+          <input required type="email" placeholder="Email" class="input" />
+          <input required placeholder="Phone" class="input" />
+          <button class="primary-btn w-full mt-4">Register</button>
+        </form>
+      </section>
+
+      <!-- LOGIN -->
+      <section id="login-section" class="hidden p-10">
+        <h2 class="text-3xl font-bold text-center mb-6">Student Login</h2>
+
+        <form class="max-w-md mx-auto bg-white p-6 rounded-xl shadow">
+          <input required type="email" placeholder="Email" class="input" />
+          <button class="primary-btn w-full mt-4">Login</button>
+        </form>
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="text-center p-6 border-t opacity-70">
+      © 2024 Quran Learning Academy
+    </footer>
+
+  </div>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>

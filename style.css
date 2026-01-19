@@ -1,0 +1,54 @@
+body {
+  box-sizing: border-box;
+}
+
+.font-cinzel { font-family: 'Cinzel', serif; }
+.font-lora { font-family: 'Lora', serif; }
+
+.geometric-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.star-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M40 0l10 30h30l-25 18 10 32-25-20-25 20 10-32L0 30h30z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #d4af37, #f4e4bc, #d4af37);
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 8px rgba(0,0,0,.3);
+}
+
+.card-hover {
+  transition: all .4s cubic-bezier(.4,0,.2,1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,.25);
+}
+
+.spinner {
+  border: 3px solid rgba(212,175,55,.3);
+  border-top: 3px solid #d4af37;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  z-index: 9999;
+}

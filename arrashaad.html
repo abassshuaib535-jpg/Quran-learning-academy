@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Rashaad Da'wah Institute - Ramadan Program</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@300;400;700;800&family=Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8942A;
+            --deep-green: #0D4737;
+            --teal: #1B5E52;
+            --cream: #F9F6F0;
+            --dark-bg: #0A2E24;
+            --accent-green: #2E8B57;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Almarai', sans-serif;
+            background: linear-gradient(135deg, #0A2E24 0%, #1B5E52 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .flyer-container {
+            width: 100%;
+            max-width: 850px;
+            background: linear-gradient(180deg, var(--cream) 0%, #FAF8F3 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        /* Decorative Islamic pattern border */
+        .flyer-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 50%, var(--gold) 100%);
+            z-index: 10;
+        }
+
+        .flyer-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 50%, var(--gold) 100%);
+            z-index: 10;
+        }
+
+        /* Islamic pattern background */
+        .pattern-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(45deg, transparent, transparent 35px, var(--deep-green) 35px, var(--deep-green) 70px),
+                repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--deep-green) 35px, var(--deep-green) 70px);
+            pointer-events: none;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--deep-green) 0%, var(--teal) 100%);
+            padding: 40px 40px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '☪';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            font-size: 200px;
+            opacity: 0.08;
+            color: var(--gold);
+        }
+
+        .header::after {
+            content: '☪';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            font-size: 200px;
+            opacity: 0.08;
+            color: var(--gold);
+        }
+
+        .institute-name {
+            font-family: 'Amiri', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .program-title {
+            font-family: 'Vibes', cursive;
+            font-size: 48px;
+            color: white;
+            margin: 20px 0;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            position: relative;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .decorative-line {
+            width: 150px;
+            height: 3px;
+            background: var(--gold);
+            margin: 15px auto;
+            position: relative;
+            animation: expandWidth 1s ease-out 0.6s backwards;
+        }
+
+        .decorative-line::before,
+        .decorative-line::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold);
+            font-size: 14px;
+            top: -8px;
+        }
+
+        .decorative-line::before {
+            left: -20px;
+        }
+
+        .decorative-line::after {
+            right: -20px;
+        }
+
+        .content {
+            padding: 45px 50px;
+            position: relative;
+        }
+
+        .program-grid {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .program-item {
+            background: white;
+            border-left: 5px solid var(--gold);
+            border-radius: 12px;
+            padding: 22px 25px;
+            box-shadow: 0 4px 15px rgba(13, 71, 55, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: slideInLeft 0.6s ease-out backwards;
+        }
+
+        .program-item:nth-child(1) { animation-delay: 0.2s; }
+        .program-item:nth-child(2) { animation-delay: 0.3s; }
+        .program-item:nth-child(3) { animation-delay: 0.4s; }
+        .program-item:nth-child(4) { animation-delay: 0.5s; }
+        .program-item:nth-child(5) { animation-delay: 0.6s; }
+
+        .program-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .program-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 25px rgba(13, 71, 55, 0.2);
+        }
+
+        .program-item:hover::before {
+            opacity: 1;
+        }
+
+        .program-icon {
+            font-size: 28px;
+            margin-right: 15px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.1));
+        }
+
+        .program-title-item {
+            font-family: 'Amiri', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--deep-green);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .program-details {
+            font-size: 16px;
+            color: #2C3E36;
+            line-height: 1.8;
+            margin-left: 43px;
+        }
+
+        .program-details strong {
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .time {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-green), var(--teal));
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin: 5px 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+        }
+
+        .lecturer-section {
+            background: linear-gradient(135deg, var(--deep-green) 0%, var(--teal) 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 35px 0;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out 0.8s backwards;
+        }
+
+        .lecturer-section::before {
+            content: '✦';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 40px;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .lecturer-section::after {
+            content: '✦';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 40px;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .lecturer-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .lecturer-title {
+            font-family: 'Amiri', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .lecturer-name {
+            font-family: 'Amiri', serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .arabic-text {
+            font-family: 'Amiri', serif;
+            font-size: 20px;
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 8px;
+        }
+
+        .links-section {
+            background: white;
+            border-radius: 15px;
+            padding: 28px;
+            border: 3px solid var(--gold);
+            animation: fadeIn 1s ease-out 1s backwards;
+        }
+
+        .links-title {
+            font-family: 'Amiri', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--deep-green);
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--cream), white);
+            padding: 14px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--teal);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 15px;
+        }
+
+        .link-item:hover {
+            background: linear-gradient(135deg, var(--teal), var(--accent-green));
+            color: white;
+            border-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 71, 55, 0.25);
+        }
+
+        .link-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: var(--dark-bg);
+            font-family: 'Amiri', serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeIn 1s ease-out 1.2s backwards;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 150px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .flyer-container {
+                max-width: none;
+                box-shadow: none;
+            }
+            
+            .program-item,
+            .lecturer-section,
+            .links-section,
+            .institute-name,
+            .program-title,
+            .decorative-line {
+                animation: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 25px 25px;
+            }
+
+            .institute-name {
+                font-size: 24px;
+            }
+
+            .program-title {
+                font-size: 36px;
+            }
+
+            .content {
+                padding: 30px 25px;
+            }
+
+            .program-title-item {
+                font-size: 19px;
+            }
+
+            .program-details {
+                font-size: 14px;
+                margin-left: 0;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer-container">
+        <div class="pattern-bg"></div>
+        
+        <div class="header">
+            <div class="institute-name">
+                AR Rashaad Da'wah Institute<br>Oluyoro
+            </div>
+            <div class="decorative-line"></div>
+            <div class="program-title">Ramadan Program Schedule</div>
+        </div>
+
+        <div class="content">
+            <div class="program-grid">
+                <!-- Sahūr Talk -->
+                <div class="program-item">
+                    <div class="program-title-item">
+                        <span class="program-icon">✨</span>
+                        Sahūr Talk
+                    </div>
+                    <div class="program-details">
+                        <span class="time">5:00 AM - 5:30 AM</span><br>
+                        <strong>Schedule:</strong> Everyday<br>
+                        <strong>Platform:</strong> Live Stream on Telegram (ONLINE)
+                    </div>
+                </div>
+
+                <!-- Tefseer Class -->
+                <div class="program-item">
+                    <div class="program-title-item">
+                        <span class="program-icon">💦</span>
+                        Tefseer Class
+                    </div>
+                    <div class="program-details">
+                        <span class="time">5:00 PM - 6:30 PM</span><br>
+                        <strong>Schedule:</strong> Everyday (Friday: After Jum'ah to Asri Time)<br>
+                        <strong>Platform:</strong> Live Stream on Facebook & Telegram<br>
+                        <strong>Venue:</strong> Oluyoro Central Mosque, Ibadan
+                    </div>
+                </div>
+
+                <!-- Radio Program -->
+                <div class="program-item">
+                    <div class="program-title-item">
+                        <span class="program-icon">💨</span>
+                        Friday Radio: Nidaahul Islaam
+                    </div>
+                    <div class="program-details">
+                        <span class="time">7:30 PM - 8:00 PM</span><br>
+                        <strong>Station:</strong> Success FM 105.3<br>
+                        <strong>Platform:</strong> Live Stream on Facebook Only
+                    </div>
+                </div>
+
+                <!-- Qiblah Program -->
+                <div class="program-item">
+                    <div class="program-title-item">
+                        <span class="program-icon">🌷</span>
+                        Sunday: Qiblah Program
+                    </div>
+                    <div class="program-details">
+                        <span class="time">12:00 PM - 1:30 PM</span><br>
+                        <strong>Platform:</strong> Live Stream on Telegram<br>
+                        <strong>Venue:</strong> Qiblah School Aleshinloye
+                    </div>
+                </div>
+
+                <!-- Khutbah Jum'ah -->
+                <div class="program-item">
+                    <div class="program-title-item">
+                        <span class="program-icon">🌟</span>
+                        Friday: Khutbah Jum'ah
+                    </div>
+                    <div class="program-details">
+                        <span class="time">1:30 PM - 2:00 PM</span><br>
+                        <strong>Platform:</strong> Live Stream on Facebook & Telegram<br>
+                        <strong>Venue:</strong> Oluyoro Central Mosque, Ibadan
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecturer Section -->
+            <div class="lecturer-section">
+                <div class="lecturer-icon">🥀</div>
+                <div class="lecturer-title">Our Noble Teacher & Lecturer</div>
+                <div class="lecturer-name">AS Sheikh Rasheed Abdur Raūf Al Imam</div>
+                <div class="arabic-text">حفظه الله تعالى ونفع الله به الإسلام والمسلمين</div>
+            </div>
+
+            <!-- Links Section -->
+            <div class="links-section">
+                <div class="links-title">
+                    <span>🔗</span> Connect With Us <span>🔗</span>
+                </div>
+                <div class="links-grid">
+                    <a href="https://t.me/arrashaadtv" class="link-item">
+                        <span class="link-icon">🏅</span>
+                        Telegram
+                    </a>
+                    <a href="https://www.facebook.com/share/1816HMqtdG/" class="link-item">
+                        <span class="link-icon">🎖️</span>
+                        Facebook
+                    </a>
+                    <a href="https://m.youtube.com/channel/UCCY-hLv7QrakrGXQqcZxR4w" class="link-item">
+                        <span class="link-icon">🥇</span>
+                        YouTube
+                    </a>
+                    <a href="https://chat.whatsapp.com/G4R87VYucLXGMp9qWfnctf" class="link-item">
+                        <span class="link-icon">🎖️</span>
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Bārakallāhu Fīkum 👏
+        </div>
+    </div>
+</body>
+</html>

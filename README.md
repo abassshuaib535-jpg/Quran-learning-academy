@@ -1,2 +1,2 @@
-# Quran-learning-academy
+# Arrashaad Dawah
 Learning Academy 
